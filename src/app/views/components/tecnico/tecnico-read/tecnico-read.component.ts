@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
 
@@ -18,7 +19,10 @@ export class TecnicoReadComponent implements AfterViewInit, OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private tecnicoService: TecnicoService) {}
+  constructor(
+    private tecnicoService: TecnicoService,
+    private router: Router
+    ) {}
   
   ngOnInit(): void {
     this.findAll();
@@ -32,5 +36,9 @@ export class TecnicoReadComponent implements AfterViewInit, OnInit {
       this.dataSource = new MatTableDataSource<Tecnico>(this.tecnicos);
       this.dataSource.paginator = this.paginator;
     });
+  }
+
+  navigateToCreate(): void {
+    this.router.navigate(['/tecnicos/create']);
   }
 }
