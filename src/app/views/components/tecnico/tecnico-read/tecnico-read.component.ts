@@ -13,7 +13,7 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
 export class TecnicoReadComponent implements AfterViewInit, OnInit {
 
   tecnicos: Tecnico[] = [];
-  
+
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'telefone'];
   dataSource = new MatTableDataSource<Tecnico>(this.tecnicos);
 
@@ -22,8 +22,8 @@ export class TecnicoReadComponent implements AfterViewInit, OnInit {
   constructor(
     private tecnicoService: TecnicoService,
     private router: Router
-    ) {}
-  
+  ) { }
+
   ngOnInit(): void {
     this.findAll();
   }
