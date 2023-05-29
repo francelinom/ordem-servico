@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
+import { OS } from 'src/app/models/os';
 import { Tecnico } from 'src/app/models/tecnico';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { OsService } from 'src/app/services/os.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
@@ -11,22 +14,35 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
 })
 export class OsCreateComponent implements OnInit {
 
-  selectedTecnico: any = '';
-  selectedCliente: any = '';
-  selectedStatus: any = '';
-  selectedPrioridade: any = '';
   clientes: Cliente[] = [];
   tecnicos: Tecnico[] = [];
 
+  os: OS = {
+    prioridade: '',
+    observacoes: '',
+    status: '',
+    tecnico: '',
+    cliente: ''
+  };
+
   constructor(
     private tecnicoService: TecnicoService,
-    private clienteService: ClienteService) {
+    private clienteService: ClienteService,
+    private osService: OsService,
+    private router: Router) {
 
   }
 
   ngOnInit(): void {
     this.listarTecnico();
     this.listarCliente();
+  }
+
+  create(): void {
+    this.osService.create(this.os).subscribe(res => {
+      this.osService.message('Ordem de servico creada com sucesso.');
+      this.router.navigate(['os']);
+    });
   }
 
   listarTecnico(): void {
