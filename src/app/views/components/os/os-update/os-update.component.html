@@ -7,7 +7,6 @@
                 <mat-option *ngFor="let tec of tecnicos" value="{{tec.id}}">{{tec.nome}}</mat-option>
             </mat-select>
         </mat-form-field>
-
         <mat-form-field appearance="fill">
             <mat-label>Selecione um Cliente</mat-label>
             <mat-select [(value)]="os.cliente">
@@ -41,6 +40,6 @@
         </mat-form-field>
     </form>
 
-    <button class="mat-elevation-z8" mat-stroked-button color="accent" (click)="create()">Criar</button>
+    <button class="mat-elevation-z8" mat-stroked-button color="accent" (click)="update()">Atualizar</button>
     <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="cancel()">Cancelar</button>
 </div>

@@ -22,17 +22,12 @@ export class OsService {
     return this.http.get<OS>(`${this.baseUrl}/os/${id}`);
   }
 
-
   create(os: OS): Observable<OS> {
     return this.http.post<OS>(`${this.baseUrl}/os`, os);
   }
 
   update(os: OS): Observable<OS> {
-    return this.http.put<OS>(`${this.baseUrl}/os/${os.id}`, os);
-  }
-
-  delete(id: any): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/os/${id}`);
+    return this.http.put<OS>(`${this.baseUrl}/os`, os);
   }
 
   message(msg: string): void {
