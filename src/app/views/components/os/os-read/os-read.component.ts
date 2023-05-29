@@ -63,4 +63,14 @@ export class OsReadComponent implements AfterViewInit, OnInit {
       });
     });
   }
+
+  prioridade(prioridade: string): string {
+    if (prioridade === 'BAIXA') {
+      return 'baixa';
+    } else if (prioridade === 'MEDIA') {
+      return 'media';
+    } else {
+      return 'alta';
+    }
+  }
 }
