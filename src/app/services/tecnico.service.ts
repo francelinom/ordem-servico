@@ -18,8 +18,17 @@ export class TecnicoService {
     return this.http.get<Tecnico[]>(`${this.baseUrl}/tecnicos`);
   }
 
+  findById(id: any): Observable<Tecnico> {
+    return this.http.get<Tecnico>(`${this.baseUrl}/tecnicos/${id}`);
+  }
+
+
   create(tecnico: Tecnico): Observable<Tecnico> {
     return this.http.post<Tecnico>(`${this.baseUrl}/tecnicos`, tecnico);
+  }
+
+  update(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.put<Tecnico>(`${this.baseUrl}/tecnicos/${tecnico.id}`, tecnico);
   }
 
   message(msg: string): void {

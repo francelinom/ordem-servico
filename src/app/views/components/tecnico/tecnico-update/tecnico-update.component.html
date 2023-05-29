@@ -23,7 +23,7 @@
         <mat-error *ngIf="nome.invalid">{{ errorValidTelefone() }}</mat-error>
     </mat-form-field>
 
-    <button class="mat-elevation-z8" mat-stroked-button color="accent"
+    <button class="mat-elevation-z8" mat-stroked-button color="accent" (click)="update()"
         [disabled]="errorValidName() || errorValidCpf() || errorValidTelefone()">Criar</button>
     <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="cancel()">
         Cancelar
