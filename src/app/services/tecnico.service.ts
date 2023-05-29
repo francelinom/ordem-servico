@@ -31,6 +31,10 @@ export class TecnicoService {
     return this.http.put<Tecnico>(`${this.baseUrl}/tecnicos/${tecnico.id}`, tecnico);
   }
 
+  delete(id: any): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/tecnicos/${id}`);
+  }
+
   message(msg: string): void {
     this.snak.open(`${msg}`, 'OK', {
       horizontalPosition: 'end',

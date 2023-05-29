@@ -41,7 +41,7 @@ export class TecnicoCreateComponent implements OnInit {
       } else if (error.error.error === 'CPF já cadastrado na base de dados!') {
         this.tecnicoService.message(error.error.error);
       }
-    })
+    });
   }
 
   errorValidName() {
