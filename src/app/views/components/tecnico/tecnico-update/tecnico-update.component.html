@@ -1,6 +1,6 @@
 <form class="form mat-elevation-z8" ngForm>
 
-    <h1>Criando Novo Tecnico</h1>
+    <h1>Atualizar Tecnico</h1>
 
     <mat-form-field class="full-width">
         <mat-label>Nome</mat-label>
@@ -23,7 +23,7 @@
         <mat-error *ngIf="nome.invalid">{{ errorValidTelefone() }}</mat-error>
     </mat-form-field>
 
-    <button class="mat-elevation-z8" mat-stroked-button color="accent" (click)="create()"
+    <button class="mat-elevation-z8" mat-stroked-button color="accent"
         [disabled]="errorValidName() || errorValidCpf() || errorValidTelefone()">Criar</button>
     <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="cancel()">
         Cancelar

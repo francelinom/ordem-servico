@@ -5,11 +5,11 @@ import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
-  selector: 'app-tecnico-create',
-  templateUrl: './tecnico-create.component.html',
-  styleUrls: ['./tecnico-create.component.css']
+  selector: 'app-tecnico-update',
+  templateUrl: './tecnico-update.component.html',
+  styleUrls: ['./tecnico-update.component.css']
 })
-export class TecnicoCreateComponent implements OnInit {
+export class TecnicoUpdateComponent implements OnInit {
 
   tecnico: Tecnico = {
     nome: '',
@@ -29,19 +29,6 @@ export class TecnicoCreateComponent implements OnInit {
 
   cancel(): void {
     this.router.navigate(['/tecnicos']);
-  }
-
-  create(): void {
-    this.tecnicoService.create(this.tecnico).subscribe(res => {
-      this.router.navigate(['/tecnicos']);
-      this.tecnicoService.message('Tecnico criado com sucesso!');
-    }, error => {
-      if (error.error.error !== 'CPF já cadastrado na base de dados!' && error?.error?.erros[0].message === 'número do registro de contribuinte individual brasileiro (CPF) inválido') {
-        this.tecnicoService.message('CPF Inválido');
-      } else if (error.error.error === 'CPF já cadastrado na base de dados!') {
-        this.tecnicoService.message(error.error.error);
-      }
-    })
   }
 
   errorValidName() {
@@ -64,5 +51,4 @@ export class TecnicoCreateComponent implements OnInit {
     }
     return false;
   }
-
 }
