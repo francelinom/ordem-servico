@@ -1,4 +1,4 @@
 export const environments = {
-    productions: false,
+    productions: true,
     baseUrl: 'https://ordemdeservico-production.up.railway.app'
 }
