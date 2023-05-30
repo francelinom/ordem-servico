@@ -8,11 +8,11 @@ import { OsService } from 'src/app/services/os.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
-  selector: 'app-os-read',
-  templateUrl: './os-read.component.html',
-  styleUrls: ['./os-read.component.css']
+  selector: 'app-os-closed',
+  templateUrl: './os-closed.component.html',
+  styleUrls: ['./os-closed.component.css']
 })
-export class OsReadComponent implements AfterViewInit, OnInit {
+export class OsClosedComponent implements AfterViewInit, OnInit {
 
   os: OS[] = [];
 
@@ -36,7 +36,7 @@ export class OsReadComponent implements AfterViewInit, OnInit {
 
   findAll(): void {
     this.osService.findAll().subscribe(os => {
-      this.os = os.filter(value => value.status != 'ENCERRADO');
+      this.os = os.filter(value => value.status == 'ENCERRADO');
       this.listarTecnico();
       this.listarCliente();
       this.dataSource = new MatTableDataSource<OS>(this.os);
